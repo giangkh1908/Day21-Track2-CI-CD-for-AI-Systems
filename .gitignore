@@ -11,3 +11,7 @@ sa-key.json
 __pycache__/
 *.pyc
 .DS_Store
+mlruns/
+*.pem
+ec2-trust-policy.json
+s3-model-read-policy.json
