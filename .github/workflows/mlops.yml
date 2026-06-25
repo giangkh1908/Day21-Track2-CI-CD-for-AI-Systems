@@ -138,19 +138,19 @@ jobs:
 
       - name: Check eval gate
         # TODO 6: Doc accuracy tu output cua job train.
-        #         Neu accuracy < 0.6, ket thuc voi loi ro rang.
+        #         Neu accuracy < 0.70, ket thuc voi loi ro rang.
         #         Neu dat nguong, in thong bao va tiep tuc.
         #
         # Goi y:
         #   acc = float("${{ needs.train.outputs.accuracy }}")
-        #   if acc < 0.6:
-        #       raise SystemExit(f"FAILED: accuracy {acc:.4f} < 0.6. Huy deploy.")
+        #   if acc < 0.70:
+        #       raise SystemExit(f"FAILED: accuracy {acc:.4f} < 0.70. Huy deploy.")
         #   print("PASSED: dang trien khai model.")
         run: |
           python - <<'EOF'
           acc = float("${{ needs.train.outputs.accuracy }}")
-          if acc < 0.6:
-              raise SystemExit(f"FAILED: accuracy {acc:.4f} < 0.6. Huy deploy.")
+          if acc < 0.70:
+              raise SystemExit(f"FAILED: accuracy {acc:.4f} < 0.70. Huy deploy.")
           print(f"PASSED: accuracy {acc:.4f}. Dang trien khai model.")
           EOF
 
