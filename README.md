@@ -4,6 +4,28 @@ Course: AIInAction - VinUni
 Buổi: Day 21 - CI/CD cho AI Systems
 
 
+## Kết Quả Hoàn Thành
+
+Lab đã được triển khai đầy đủ theo ba giai đoạn MLOps: thực nghiệm cục bộ, CI/CD tự động, và huấn luyện liên tục khi dữ liệu thay đổi.
+
+### Bước 1 - Thực nghiệm cục bộ với MLflow
+
+Đã chạy các thí nghiệm huấn luyện mô hình RandomForest với nhiều bộ siêu tham số khác nhau, ghi nhận `accuracy`, `f1_score`, parameters và artifact model bằng MLflow. Kết quả được theo dõi trong MLflow UI để so sánh và chọn cấu hình phù hợp cho pipeline.
+
+![MLflow UI](MLflow%20UI.png)
+
+### Bước 2 - CI/CD tự động với GitHub Actions và AWS
+
+Đã xây dựng pipeline GitHub Actions gồm các job `Unit Test`, `Train`, `Eval`, và `Deploy`. Pipeline tự động pull dữ liệu bằng DVC từ Amazon S3, huấn luyện mô hình, kiểm tra quality gate, upload model mới lên S3 và deploy FastAPI service trên EC2.
+
+![GitHub Actions Done](GithubActionDone.png)
+
+### Bước 3 - Huấn luyện liên tục khi có dữ liệu mới
+
+Đã mô phỏng luồng thêm dữ liệu mới bằng cách cập nhật `train_phase1.csv` với dữ liệu từ `train_phase2.csv`, cập nhật DVC pointer và push commit dữ liệu để kích hoạt lại pipeline tự động. Workflow chứng minh rằng thay đổi dữ liệu có thể tự động kéo theo train, eval và deploy model mới.
+
+![Continuous Training](AutoTrain.png)
+
 ---
 
 ## Mục Tiêu Học Tập
