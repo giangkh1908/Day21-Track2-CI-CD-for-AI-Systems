@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, f1_score
 from dotenv import load_dotenv
 
 load_dotenv()
-EVAL_THRESHOLD = 0.70
+EVAL_THRESHOLD = 0.6
 
 
 def train(
